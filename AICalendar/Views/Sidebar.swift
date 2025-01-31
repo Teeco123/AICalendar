@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Sidebar: View{
+    @Binding var currentView: SidebarSelection
     @Binding var isHovering: Bool
     @State private var showText = false
     @State var sidebarWidth: CGFloat = 55
@@ -23,14 +24,20 @@ struct Sidebar: View{
                 }
                 .frame( maxWidth: .infinity, alignment: .leading)
             } else {
-                HStack(alignment: .center){
-                    Image(systemName: "calendar")
-                        .font(.system(size: 28))
-                        .padding(.leading, 10)
-                        .padding(.vertical)
-                    Text("Calendar")
+                Button(action: {
+            
+                }){
+                    HStack(alignment: .center){
+                        Image(systemName: "calendar")
+                            .font(.system(size: 28))
+                            .padding(.leading, 10)
+                            .padding(.vertical)
+                        Text("Calendar")
+                    }
+                    .frame( maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
                 }
-                .frame( maxWidth: .infinity, alignment: .leading)
+                .buttonStyle(.plain)
             }
             Spacer()
         }

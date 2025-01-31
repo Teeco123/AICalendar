@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isHovering = false
-    @State var showText = false
+    @State var currentView: SidebarSelection = .calendar
+    @State var isHovering: Bool = false
     
     var body: some View {
         HStack(spacing: 0){
-            Sidebar(isHovering: $isHovering)
+            Sidebar(currentView: $currentView, isHovering: $isHovering)
             
             Text("HEJ")
                 .padding()
