@@ -15,9 +15,14 @@ struct ContentView: View {
         HStack(spacing: 0){
             Sidebar(currentView: $currentView, isHovering: $isHovering)
             
-            Text("HEJ")
-                .padding()
-                .frame(maxWidth: .infinity)
+            switch currentView {
+            case .calendar:
+                Text("Calendar")
+                    .frame(maxWidth: .infinity)
+            case .settings:
+                Text("Settings")
+                    .frame(maxWidth: .infinity)
+            }
         }
         .frame(maxWidth: .infinity)
     }
