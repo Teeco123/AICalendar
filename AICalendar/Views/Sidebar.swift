@@ -51,7 +51,8 @@ struct Sidebar: View{
             Spacer()
         }
         .frame(width: sidebarWidth)
-        .background(.red)
+        .background(.ultraThickMaterial)
+        .background(.black)
         .onHover(){ hovering in
             withAnimation(.linear(duration: 0.2)){
                 sidebarWidth = hovering ? 140 : 55
