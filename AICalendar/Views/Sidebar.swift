@@ -13,6 +13,7 @@ struct Sidebar: View{
     @State private var showText = false
     @State var sidebarWidth: CGFloat = 50
     
+    // All sidebar buttons
     @State var tabs: [SidebarButton] = [
         SidebarButton(view: .calendar, icon: "calendar", text: "Calendar"),
         SidebarButton(view: .settings, icon: "gear", text: "Settings")
@@ -21,6 +22,7 @@ struct Sidebar: View{
     var body: some View{
         VStack(){
             if !isHovering{
+                // Displaying icons on sidebar
                 ForEach(tabs, id: \.view){ tab in
                     HStack(){
                         Image(systemName: tab.icon)
@@ -31,6 +33,7 @@ struct Sidebar: View{
                     .frame( maxWidth: .infinity, alignment: .leading)
                 }
             } else {
+                // Displaying icons with text and buttons on hover
                 ForEach(tabs, id: \.view){ tab in
                     Button(action: {
                         currentView = tab.view
@@ -53,6 +56,7 @@ struct Sidebar: View{
         .frame(width: sidebarWidth)
         .background(.ultraThickMaterial)
         .background(.black)
+        // Handle hover on sidebar to expand
         .onHover(){ hovering in
             withAnimation(.linear(duration: 0.2)){
                 sidebarWidth = hovering ? 130 : 50
