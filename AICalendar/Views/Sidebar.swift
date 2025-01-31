@@ -26,7 +26,7 @@ struct Sidebar: View{
                         Image(systemName: tab.icon)
                             .font(.system(size: 28))
                             .padding(.leading, 10)
-                            .padding(.vertical)
+                            .padding(.vertical, 8)
                     }
                     .frame( maxWidth: .infinity, alignment: .leading)
                 }
@@ -39,7 +39,7 @@ struct Sidebar: View{
                             Image(systemName: tab.icon)
                                 .font(.system(size: 28))
                                 .padding(.leading, 10)
-                                .padding(.vertical)
+                                .padding(.vertical, 8)
                             Text(tab.text)
                         }
                         .frame( maxWidth: .infinity, alignment: .leading)
