@@ -11,7 +11,13 @@ import SwiftUI
 struct AICalendarApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
+    }
+}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }
