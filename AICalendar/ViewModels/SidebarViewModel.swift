@@ -10,6 +10,19 @@ import SwiftUI
 @Observable
 class SidebarViewModel{
     var selectedTab: SidebarViewType = .calendar
+    var tabs: [SidebarTab] = []
+    
+    init() {
+        loadTabs()
+        selectTab(.calendar)
+    }
+    
+    func loadTabs() {
+        tabs = [
+            SidebarTab(view: .calendar, icon: "calendar", text: "Calendar"),
+            SidebarTab(view: .settings, icon: "gear", text: "Settings")
+        ]
+    }
     
     func selectTab(_ tab: SidebarViewType){
         selectedTab = tab

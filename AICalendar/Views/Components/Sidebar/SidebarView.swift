@@ -10,7 +10,6 @@ import SwiftUI
 struct SidebarView: View {
     @Bindable var sidebarViewModel: SidebarViewModel
     
-    
     var body: some View {
         NavigationStack {
             List(selection: Binding(
@@ -18,7 +17,7 @@ struct SidebarView: View {
                 set: { sidebarViewModel.selectTab($0)}
             )) {
                 Section(header: Text("Main")) {
-                    ForEach(SidebarTabs.tabs, id: \.self) { tab in
+                    ForEach(sidebarViewModel.tabs, id: \.self) { tab in
                         SidebarTabView(tab: tab)
                     }
                 }
