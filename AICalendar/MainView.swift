@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var sidebarViewModel = SidebarViewModel()
+    @State var eventViewModel = EventViewModel()
     
     var body: some View {
         NavigationSplitView{
@@ -16,7 +17,7 @@ struct MainView: View {
         } detail: {
             switch sidebarViewModel.selectedTab {
             case .calendar:
-                CalendarView()
+                CalendarView(eventViewModel: eventViewModel)
             case .settings:
                 Text("XDDD")
             }

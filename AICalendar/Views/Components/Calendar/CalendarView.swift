@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CalendarView: View {
+    @Bindable var eventViewModel: EventViewModel
     var body: some View {
-        Text("Calendar")
+        Text(eventViewModel.events.first?.title ?? "")
     }
 }
