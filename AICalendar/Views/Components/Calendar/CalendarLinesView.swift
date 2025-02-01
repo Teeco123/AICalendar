@@ -27,6 +27,8 @@ struct CalendarLinesView: View{
           return "12 \(hour == 0 ? "am" : "pm")"
         case 13...23:
           return "\(hour - 12) pm"
+        case 24:
+            return "\(hour - 12) am"
         default:
           return "\(hour) am"
         }

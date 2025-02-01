@@ -10,7 +10,7 @@ import SwiftUI
 struct CalendarView: View {
     @Bindable var calendarViewModel: CalendarViewModel
     var startHour: Int = 0
-    var endHour: Int = 23
+    var endHour: Int = 24
     let calendarHeight: CGFloat = 1600
     var use24HourFormat: Bool = true
     private let hourLabel: CGSize = .init(width: 38, height: 38)
