@@ -21,11 +21,6 @@ struct SidebarView: View {
                 .collapsible(false)
             }
             .listStyle(.sidebar)
-            .toolbar {
-                ToolbarItemGroup {
-                    Image(systemName: "sidebar.left")
-                }
-            }
         }
     }
 }
