@@ -12,10 +12,7 @@ struct SidebarView: View {
     
     var body: some View {
         NavigationStack {
-            List(selection: Binding(
-                get: { sidebarViewModel.selectedTab },
-                set: { sidebarViewModel.selectTab($0)}
-            )) {
+            List(selection: sidebarViewModel.selectedTabBinding){
                 Section(header: Text("Main")) {
                     ForEach(sidebarViewModel.tabs, id: \.self) { tab in
                         SidebarTabView(tab: tab)

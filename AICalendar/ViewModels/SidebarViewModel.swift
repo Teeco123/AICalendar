@@ -28,4 +28,10 @@ class SidebarViewModel{
         selectedTab = tab
     }
     
+    var selectedTabBinding: Binding<SidebarViewType?> {
+        Binding(
+            get: { self.selectedTab },
+            set: { self.selectTab($0!) }
+        )
+    }
 }
