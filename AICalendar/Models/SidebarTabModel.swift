@@ -25,3 +25,10 @@ struct SidebarTab: Hashable, Identifiable{
     }
 }
 
+struct SidebarTabs {
+    static let tabs: [SidebarTab] = [
+        SidebarTab(view: .calendar, icon: "calendar", text: "Calendar"),
+        SidebarTab(view: .settings, icon: "gear", text: "Settings")
+    ]
+}
+
