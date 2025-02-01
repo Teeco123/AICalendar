@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AICalendarApp: App {
+    @StateObject var uiState = UIState()
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(uiState)
         }
     }
 }
@@ -19,5 +21,6 @@ struct AICalendarApp: App {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(UIState())
     }
 }

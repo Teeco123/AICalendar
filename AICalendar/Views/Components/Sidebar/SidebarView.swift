@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct SidebarView: View{
+struct SidebarView: View {
+    @EnvironmentObject var uiState: UIState
+    
     var body: some View {
-        List(){
-            
-            // Main section
-            Section(header: Text("Main")){
-                ForEach(SidebarTabs.tabs, id: \.self){ tab in
-                    SidebarTabView(tab: tab)
+        NavigationStack {
+            List(selection: $uiState.selectedTab) {
+                Section(header: Text("Main")) {
+                    ForEach(SidebarTabs.tabs, id: \.self) { tab in
+                        SidebarTabView(tab: tab)
+                    }
                 }
+                .collapsible(false)
             }
-            .collapsible(false)
-        }
-        .listStyle(.sidebar)
-        
-        // Toggle sidebar button
-        .toolbar{
-            ToolbarItemGroup {
-                Image(systemName: "sidebar.left")
+            .listStyle(.sidebar)
+            .toolbar {
+                ToolbarItemGroup {
+                    Image(systemName: "sidebar.left")
+                }
             }
         }
     }

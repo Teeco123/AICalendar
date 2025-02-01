@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var uiState: UIState
     var body: some View {
-        NavigationView{
+        NavigationSplitView{
             SidebarView()
+        } detail: {
+            switch uiState.selectedTab {
+            case .calendar:
+                CalendarView()
+            case .settings:
+                Text("XDDD")
+            }
         }
     }
 }

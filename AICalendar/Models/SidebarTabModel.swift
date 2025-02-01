@@ -12,7 +12,8 @@ enum SidebarSelection {
     case settings
 }
 
-struct SidebarTab: Hashable{
+struct SidebarTab: Hashable, Identifiable{
+    let id = UUID()
     var view: SidebarSelection
     var icon: String
     var text: String

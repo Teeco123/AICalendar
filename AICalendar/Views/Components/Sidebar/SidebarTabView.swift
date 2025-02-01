@@ -11,8 +11,7 @@ struct SidebarTabView: View {
     let tab: SidebarTab
     
     var body: some View {
-        NavigationLink{
-        } label: {
+        NavigationLink(value: tab.view) {
             Label(tab.text, systemImage: tab.icon)
         }
     }
