@@ -13,7 +13,7 @@ struct CalendarView: View {
     var endHour: Int = 24
     let calendarHeight: CGFloat = 1600
     var use24HourFormat: Bool = true
-    private let hourLabel: CGSize = .init(width: 38, height: 38)
+    private let hourLabel: CGSize = .init(width: 50, height: 40)
     
     let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 7)
     
@@ -27,6 +27,15 @@ struct CalendarView: View {
                     use24HourFormat: use24HourFormat,
                     hourLabel: hourLabel
                 )
+                VStack(spacing: 0){
+                    CalendarEventView(
+                        startHour: startHour,
+                        endHour: endHour,
+                        calendarHeight: calendarHeight,
+                        hourLabel: hourLabel
+                    )
+                }
+                .offset(x: hourLabel.width + 10)
             }
         }
     }
