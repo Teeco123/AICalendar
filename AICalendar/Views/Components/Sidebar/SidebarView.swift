@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct SidebarView: View {
-    @EnvironmentObject var uiState: UIState
+    @Bindable var sidebarViewModel: SidebarViewModel
+    
     
     var body: some View {
         NavigationStack {
-            List(selection: $uiState.selectedTab) {
+            List(selection: Binding(
+                get: { sidebarViewModel.selectedTab },
+                set: { sidebarViewModel.selectTab($0)}
+            )) {
                 Section(header: Text("Main")) {
                     ForEach(SidebarTabs.tabs, id: \.self) { tab in
                         SidebarTabView(tab: tab)

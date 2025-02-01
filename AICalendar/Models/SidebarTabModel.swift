@@ -7,18 +7,18 @@
 
 import Foundation
 
-enum SidebarSelection {
+enum SidebarViewType {
     case calendar
     case settings
 }
 
 struct SidebarTab: Hashable, Identifiable{
     let id = UUID()
-    var view: SidebarSelection
+    var view: SidebarViewType
     var icon: String
     var text: String
     
-    public init(view: SidebarSelection, icon: String, text: String) {
+    public init(view: SidebarViewType, icon: String, text: String) {
         self.view = view
         self.icon = icon
         self.text = text

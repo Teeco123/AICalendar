@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var uiState: UIState
+    @State var sidebarViewModel = SidebarViewModel()
+    
     var body: some View {
         NavigationSplitView{
-            SidebarView()
+            SidebarView(sidebarViewModel: sidebarViewModel)
         } detail: {
-            switch uiState.selectedTab {
+            switch sidebarViewModel.selectedTab {
             case .calendar:
                 CalendarView()
             case .settings:
