@@ -9,7 +9,20 @@ import SwiftUI
 
 struct CalendarView: View {
     @Bindable var eventViewModel: EventViewModel
+    @Bindable var calendarViewModel: CalendarViewModel
+    
+    let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 7)  // ✅ 7 Columns for Days
+    
     var body: some View {
-        Text(eventViewModel.events.first?.title ?? "")
+        VStack {
+            HStack {
+                ForEach(calendarViewModel.weekSymbols, id: \.self) { weekday in
+                    Text(weekday)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+        }
+        .padding()
     }
 }
