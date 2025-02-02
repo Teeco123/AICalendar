@@ -53,6 +53,7 @@ struct CalendarEventView: View {
             .background(
                 RoundedRectangle(cornerRadius: 8)
                     .fill(.mint)
+                    .padding(1)
             )
             .offset(y: CGFloat(offset))
     }
