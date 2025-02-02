@@ -12,19 +12,36 @@ struct MainView: View {
     @State var calendarViewModel = CalendarViewModel()
     @State var eventViewModel = EventViewModel()
     
+    @State var showingEditor: Bool = true
+    
     var body: some View {
-        NavigationSplitView{
-            SidebarView(sidebarViewModel: sidebarViewModel)
-        } detail: {
-            switch sidebarViewModel.selectedTab {
-            case .calendar:
-                CalendarView(
-                    calendarViewModel: calendarViewModel,
-                    eventViewModel: eventViewModel
-                )
-            case .settings:
-                Text("XDDD")
+        HStack{
+            NavigationSplitView{
+                SidebarView(sidebarViewModel: sidebarViewModel)
+                    .navigationSplitViewColumnWidth(140)
+            } detail: {
+                switch sidebarViewModel.selectedTab {
+                case .calendar:
+                    CalendarView(
+                        calendarViewModel: calendarViewModel,
+                        eventViewModel: eventViewModel
+                    )
+                case .settings:
+                    Text("XDDD")
+                }
             }
+            if showingEditor && sidebarViewModel.selectedTab == .calendar{
+                VStack(){
+                    Text("Date Editor")
+                }
+                .frame(width: 180)
+            }
+        }
+        .toolbar {
+            Toggle(isOn: $showingEditor) {
+                Image(systemName: "sidebar.trailing")
+            }
+            .toggleStyle(.button)
         }
     }
 }
