@@ -35,7 +35,7 @@ struct CalendarEventView: View {
     var offset: Double {
         (Double(hour - startHour) * Double(hourHeight)) +
         (Double(minute) / 60 * Double(hourHeight)) +
-        20
+        20 - 64
     }
     
     var height: Double {

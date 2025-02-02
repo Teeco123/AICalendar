@@ -21,8 +21,8 @@ class EventViewModel{
         events = [
             Event(
                 title: "Event 1",
-                startDate: .from("2025-02-01 22:00"),
-                endDate: .from("2025-02-01 23:00")
+                startDate: .from("2025-02-01 14:00"),
+                endDate: .from("2025-02-01 16:00")
             ),
             Event(
                 title: "Event 1",
