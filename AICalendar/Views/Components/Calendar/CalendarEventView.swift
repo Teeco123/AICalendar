@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CalendarEventView: View {
+    var event: Event
     var startHour: Int
     var endHour: Int
     var calendarHeight: CGFloat
@@ -17,19 +18,34 @@ struct CalendarEventView: View {
         calendarHeight / CGFloat(endHour - startHour + 1)
     }
     
+    let calendar = Calendar.current
+    
+    var duration: Double {
+      event.endDate.timeIntervalSince(event.startDate)
+    }
+
+    var hour: Int {
+      calendar.component(.hour, from: event.startDate)
+    }
+
+    var minute: Int {
+      calendar.component(.minute, from: event.startDate)
+    }
+    
     var offset: Double {
-        (Double(2 - startHour) * Double(hourHeight)) +
-        (Double(30) / 60 * Double(hourHeight)) +
-        10
+        (Double(hour - startHour) * Double(hourHeight)) +
+        (Double(minute) / 60 * Double(hourHeight)) +
+        20
     }
     
     var height: Double {
-      let timeHeight = (10800 / 60 / 60) * Double(hourHeight)
+      let timeHeight = (duration / 60 / 60) * Double(hourHeight)
       return timeHeight < 16 ? 16 : timeHeight
     }
     
+    
     var body: some View {
-        Text("Event")
+        Text(event.startDate.description)
             .bold()
             .padding()
             .frame(maxWidth: .infinity, alignment: .topLeading)

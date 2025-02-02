@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     @Bindable var calendarViewModel: CalendarViewModel
+    @Bindable var eventViewModel: EventViewModel
     var startHour: Int = 0
     var endHour: Int = 24
     let calendarHeight: CGFloat = 1600
@@ -27,13 +28,18 @@ struct CalendarView: View {
                     use24HourFormat: use24HourFormat,
                     hourLabel: hourLabel
                 )
-                VStack(spacing: 0){
-                    CalendarEventView(
-                        startHour: startHour,
-                        endHour: endHour,
-                        calendarHeight: calendarHeight,
-                        hourLabel: hourLabel
-                    )
+                ForEach(eventViewModel.processedEvents, id: \.self){ events in
+                    HStack(){
+                        ForEach(events){ event in
+                            CalendarEventView(
+                                event: event,
+                                startHour: startHour,
+                                endHour: endHour,
+                                calendarHeight: calendarHeight,
+                                hourLabel: hourLabel
+                            )
+                        }
+                    }
                 }
                 .offset(x: hourLabel.width + 10)
             }
