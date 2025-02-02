@@ -8,9 +8,10 @@
 import SwiftUI
 
 extension Date {
-  static func from(_ dateString: String, format: String = "yyyy-MM-dd HH:mm") -> Date {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = format
-    return dateFormatter.date(from: dateString)!
-  }
+    static func from(_ dateString: String) -> Date {
+        let strategy = Date.ParseStrategy(
+            format: "\(year: .defaultDigits)-\(month: .twoDigits)-\(day: .twoDigits) \(hour: .twoDigits(clock: .twentyFourHour, hourCycle: .zeroBased)):\(minute: .twoDigits)", timeZone: TimeZone(abbreviation: "UTC")!)
+        let date = try? Date(dateString, strategy: strategy)
+        return date!
+    }
 }
