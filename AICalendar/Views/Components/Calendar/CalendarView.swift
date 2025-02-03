@@ -41,7 +41,8 @@ struct CalendarView: View {
                                 startHour: startHour,
                                 endHour: endHour,
                                 calendarHeight: calendarHeight,
-                                hourLabel: hourLabel
+                                hourLabel: hourLabel,
+                                dayWidth: dayWidth
                             )
                         }
                     }

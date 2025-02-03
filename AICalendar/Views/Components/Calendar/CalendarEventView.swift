@@ -13,6 +13,7 @@ struct CalendarEventView: View {
     var endHour: Int
     var calendarHeight: CGFloat
     var hourLabel: CGSize
+    var dayWidth: CGFloat
     
     private var hourHeight: CGFloat {
         calendarHeight / CGFloat(endHour - startHour + 1)
@@ -48,7 +49,7 @@ struct CalendarEventView: View {
         Text(event.startDate.description)
             .bold()
             .padding()
-            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .frame(maxWidth: dayWidth, alignment: .topLeading)
             .frame(height: height)
             .background(
                 RoundedRectangle(cornerRadius: 8)
