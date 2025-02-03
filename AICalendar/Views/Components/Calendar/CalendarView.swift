@@ -20,8 +20,8 @@ struct CalendarView: View {
     let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 7)
     
     var body: some View {
-        ScrollView(.vertical,showsIndicators: false){
-            ZStack  (alignment: .topLeading){
+        ScrollView(.vertical){
+            ZStack(alignment: .topLeading){
                 CalendarHLinesView(
                     startHour: startHour,
                     endHour: endHour,
@@ -33,7 +33,7 @@ struct CalendarView: View {
                     Rectangle()
                         .fill(.black.opacity(0))
                         .frame(width: hourLabel.width + 10, height: .infinity, alignment: .trailing)
-                    ScrollView(.horizontal){
+                    ScrollView(.horizontal, showsIndicators: false){
                         ZStack(alignment: .topLeading){
                             CalendarVLinesView(
                                 hourLabel: hourLabel,

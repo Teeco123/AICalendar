@@ -38,18 +38,18 @@ class EventViewModel{
         }
         var currentEvents: [Event] = []
         for event in sortedEvents {
-          if let latestEndTimeInCurrentEvents = currentEvents.map({ $0.endDate }).max(),
-             event.startDate < latestEndTimeInCurrentEvents {
-            currentEvents.append(event)
-          } else {
-            if !currentEvents.isEmpty {
-              processedEvents.append(currentEvents)
+            if let latestEndTimeInCurrentEvents = currentEvents.map({ $0.endDate }).max(),
+               event.startDate < latestEndTimeInCurrentEvents {
+                currentEvents.append(event)
+            } else {
+                if !currentEvents.isEmpty {
+                    processedEvents.append(currentEvents)
+                }
+                currentEvents = [event]
             }
-            currentEvents = [event]
-          }
         }
         if !currentEvents.isEmpty {
-          processedEvents.append(currentEvents)
+            processedEvents.append(currentEvents)
         }
-      }
+    }
 }

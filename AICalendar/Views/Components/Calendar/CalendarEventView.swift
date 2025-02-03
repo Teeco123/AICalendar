@@ -22,15 +22,15 @@ struct CalendarEventView: View {
     let calendar = Calendar.current
     
     var duration: Double {
-      event.endDate.timeIntervalSince(event.startDate)
+        event.endDate.timeIntervalSince(event.startDate)
     }
-
+    
     var hour: Int {
-      calendar.component(.hour, from: event.startDate)
+        calendar.component(.hour, from: event.startDate)
     }
-
+    
     var minute: Int {
-      calendar.component(.minute, from: event.startDate)
+        calendar.component(.minute, from: event.startDate)
     }
     
     var offsetY: Double {
@@ -44,8 +44,8 @@ struct CalendarEventView: View {
     }
     
     var height: Double {
-      let timeHeight = (duration / 60 / 60) * Double(hourHeight)
-      return timeHeight < 16 ? 16 : timeHeight
+        let timeHeight = (duration / 60 / 60) * Double(hourHeight)
+        return timeHeight < 16 ? 16 : timeHeight
     }
     
     
