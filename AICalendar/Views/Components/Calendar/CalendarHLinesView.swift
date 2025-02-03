@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalendarLinesView: View{
+struct CalendarHLinesView: View{
     var startHour: Int
     var endHour: Int
     var calendarHeight: CGFloat

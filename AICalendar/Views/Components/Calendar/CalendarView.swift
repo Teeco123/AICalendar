@@ -21,7 +21,7 @@ struct CalendarView: View {
     var body: some View {
         ScrollView(.vertical,showsIndicators: false){
             ZStack  (alignment: .topLeading){
-                CalendarLinesView(
+                CalendarHLinesView(
                     startHour: startHour,
                     endHour: endHour,
                     calendarHeight: calendarHeight,
