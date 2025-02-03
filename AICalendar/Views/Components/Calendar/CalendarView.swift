@@ -28,6 +28,9 @@ struct CalendarView: View {
                     use24HourFormat: use24HourFormat,
                     hourLabel: hourLabel
                 )
+                CalendarVLinesView(
+                    hourLabel: hourLabel
+                )
                 ForEach(eventViewModel.processedEvents, id: \.self){ events in
                     HStack(){
                         ForEach(events){ event in
