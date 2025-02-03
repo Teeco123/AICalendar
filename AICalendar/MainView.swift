@@ -12,7 +12,7 @@ struct MainView: View {
     @State var calendarViewModel = CalendarViewModel()
     @State var eventViewModel = EventViewModel()
     
-    @State var showingEditor: Bool = true
+    @State var showingEditor: Bool = false
     
     var body: some View {
         HStack{
