@@ -33,10 +33,14 @@ struct CalendarEventView: View {
       calendar.component(.minute, from: event.startDate)
     }
     
-    var offset: Double {
+    var offsetY: Double {
         (Double(hour - startHour) * Double(hourHeight)) +
         (Double(minute) / 60 * Double(hourHeight)) +
         20 - 64
+    }
+    
+    var offsetX: CGFloat {
+        dayWidth / 2
     }
     
     var height: Double {
@@ -56,6 +60,6 @@ struct CalendarEventView: View {
                     .fill(.mint)
                     .padding(1)
             )
-            .offset(y: CGFloat(offset))
+            .offset(x: offsetX, y: CGFloat(offsetY))
     }
 }
