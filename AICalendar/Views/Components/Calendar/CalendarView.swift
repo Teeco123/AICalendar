@@ -29,25 +29,31 @@ struct CalendarView: View {
                     use24HourFormat: use24HourFormat,
                     hourLabel: hourLabel
                 )
-                CalendarVLinesView(
-                    hourLabel: hourLabel,
-                    dayWidth: dayWidth
-                )
-                ForEach(eventViewModel.processedEvents, id: \.self){ events in
-                    HStack(){
-                        ForEach(events){ event in
-                            CalendarEventView(
-                                event: event,
-                                startHour: startHour,
-                                endHour: endHour,
-                                calendarHeight: calendarHeight,
+                HStack(spacing: 0){
+                    Rectangle()
+                        .fill(.black.opacity(0))
+                        .frame(width: hourLabel.width + 10, height: .infinity, alignment: .trailing)
+                    ScrollView(.horizontal){
+                        ZStack(){
+                            CalendarVLinesView(
                                 hourLabel: hourLabel,
                                 dayWidth: dayWidth
                             )
+                            ForEach(eventViewModel.processedEvents, id: \.self){ events in
+                                ForEach(events){ event in
+                                    CalendarEventView(
+                                        event: event,
+                                        startHour: startHour,
+                                        endHour: endHour,
+                                        calendarHeight: calendarHeight,
+                                        hourLabel: hourLabel,
+                                        dayWidth: dayWidth
+                                    )
+                                }
+                            }
                         }
                     }
                 }
-                .offset(x: hourLabel.width + 10)
             }
         }
     }
