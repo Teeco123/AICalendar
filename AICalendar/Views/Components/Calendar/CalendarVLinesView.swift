@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalendarVLinesView: View{
     var hourLabel: CGSize
-    var dayWidth: CGFloat = 100
+    var dayWidth: CGFloat
     
     var body: some View{
         HStack(spacing: 0){

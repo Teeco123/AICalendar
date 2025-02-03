@@ -13,6 +13,7 @@ struct CalendarView: View {
     var startHour: Int = 0
     var endHour: Int = 24
     let calendarHeight: CGFloat = 1600
+    var dayWidth: CGFloat = 100
     var use24HourFormat: Bool = true
     private let hourLabel: CGSize = .init(width: 50, height: 40)
     
@@ -29,7 +30,8 @@ struct CalendarView: View {
                     hourLabel: hourLabel
                 )
                 CalendarVLinesView(
-                    hourLabel: hourLabel
+                    hourLabel: hourLabel,
+                    dayWidth: dayWidth
                 )
                 ForEach(eventViewModel.processedEvents, id: \.self){ events in
                     HStack(){
