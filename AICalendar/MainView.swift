@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var sidebarViewModel = SidebarViewModel()
-    @State var calendarViewModel = CalendarViewModel()
+    @State var calendarViewModel = CalendarViewModel(years: 10)
     @State var eventViewModel = EventViewModel()
     
     @State var showingEditor: Bool = false

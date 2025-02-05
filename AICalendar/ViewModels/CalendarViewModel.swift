@@ -10,16 +10,9 @@ import Foundation
 @Observable
 class CalendarViewModel{
     var calendar: Calendar = Calendar.current
-    var weekSymbols: [String] = []
-    var monthSymbols: [String] = []
+    var days: [Date] = []
     
-    init(){
-        newCalendar()
-    }
-    
-    func newCalendar(){
-        calendar.firstWeekday = 2
-        weekSymbols = calendar.weekdaySymbols
-        monthSymbols = calendar.monthSymbols
+    init(years: Int){
+        days = DateGenerator.generateDates(forYears: 10)
     }
 }
