@@ -21,6 +21,7 @@ struct CalendarView: View {
     let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 7)
     
     var body: some View {
+        
         ScrollView(.vertical){
             ZStack(alignment: .topLeading){
                 CalendarHLinesView(
@@ -40,6 +41,9 @@ struct CalendarView: View {
                                 hourLabel: hourLabel,
                                 dayWidth: dayWidth
                             )
+                            ForEach(Array(calendarViewModel.days.enumerated()), id: \.element) { index, day in
+                                CalendarDaysView(index: index, day: day, dayWidth: dayWidth)
+                            }
                             ForEach(eventViewModel.processedEvents, id: \.self){ events in
                                 HStack(){
                                     ForEach(events){ event in
