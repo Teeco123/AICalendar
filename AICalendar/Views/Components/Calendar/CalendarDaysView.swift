@@ -16,9 +16,16 @@ struct CalendarDaysView: View {
         (CGFloat(index) * dayWidth) + (dayWidth / 2)
     }
     
+    var formattedDay: String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EE d"
+        let formattedDay = formatter.string(from: day)
+        return formattedDay
+    }
+    
     var body: some View {
         HStack(spacing: 10) {
-            Text(day.description)
+            Text(formattedDay)
         }
         .frame(width: dayWidth)
         .offset(x: offsetX)
