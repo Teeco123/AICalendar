@@ -8,26 +8,27 @@
 import SwiftUI
 
 struct CalendarDaysView: View {
-    let index: Int
-    let day: Date
+    let days: [Date]
     let dayWidth: CGFloat
     
-    var offsetX: CGFloat{
-        (CGFloat(index) * dayWidth) + (dayWidth / 2)
-    }
-    
-    var formattedDay: String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EE d"
-        let formattedDay = formatter.string(from: day)
-        return formattedDay
-    }
-    
     var body: some View {
-        LazyHStack(alignment: .top, spacing: 10) {
+        LazyHStack(alignment: .top, spacing: 0) {
+            ForEach(Array(days.enumerated()), id: \.element) { index, day in
+                var formattedDay: String{
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "EE d"
+                    let formattedDay = formatter.string(from: day)
+                    return formattedDay
+                }
+                
+                var offsetX: CGFloat{
+                    dayWidth / 2
+                }
+                
                 Text(formattedDay)
+                    .frame(width: dayWidth)
+                    .offset(x: offsetX)
             }
-            .frame(width: dayWidth)
-            .offset(x: offsetX)
+        }
     }
 }
