@@ -17,19 +17,24 @@ struct MainView: View {
     var body: some View {
         HStack{
             NavigationSplitView{
+                // Navbar
                 SidebarView(sidebarViewModel: sidebarViewModel)
                     .navigationSplitViewColumnWidth(140)
             } detail: {
+                // Display windows based on navbar selection
                 switch sidebarViewModel.selectedTab {
                 case .calendar:
+                    // Display calendar
                     CalendarView(
                         calendarViewModel: calendarViewModel,
                         eventViewModel: eventViewModel
                     )
                 case .settings:
+                    // Display settings
                     Text("XDDD")
                 }
             }
+            // Event editor window on right
             if showingEditor && sidebarViewModel.selectedTab == .calendar{
                 VStack(){
                     Text("Date Editor")
@@ -37,6 +42,7 @@ struct MainView: View {
                 .frame(width: 180)
             }
         }
+        // Toolbar to show / hide event editor
         .toolbar {
             Toggle(isOn: $showingEditor) {
                 Image(systemName: "sidebar.trailing")

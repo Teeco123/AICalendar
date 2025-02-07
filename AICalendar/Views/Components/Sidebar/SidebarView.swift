@@ -12,6 +12,7 @@ struct SidebarView: View {
     
     var body: some View {
         NavigationStack {
+            // Displaying tabs in navbar
             List(selection: sidebarViewModel.selectedTabBinding){
                 Section(header: Text("Main")) {
                     ForEach(sidebarViewModel.tabs, id: \.self) { tab in

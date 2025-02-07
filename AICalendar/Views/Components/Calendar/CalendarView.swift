@@ -21,6 +21,7 @@ struct CalendarView: View {
     let columns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 7)
     
     var body: some View {
+        // Scrollview up / down for hours
         ScrollView(.vertical){
             ZStack(alignment: .topLeading){
                 CalendarHLinesView(
@@ -30,11 +31,13 @@ struct CalendarView: View {
                     use24HourFormat: use24HourFormat,
                     hourLabel: hourLabel
                 )
+                // Scrollview left / right with rectangle on left for spacing grid from hours
                 HStack(spacing: 0){
                     Rectangle()
                         .fill(.black.opacity(0))
                         .frame(width: hourLabel.width + 10, height: .infinity, alignment: .trailing)
                     ScrollView(.horizontal, showsIndicators: false){
+                        // Separating V lines and day names
                         ZStack(alignment: .topLeading){
                             CalendarVLinesView(
                                 hourLabel: hourLabel,
@@ -45,6 +48,7 @@ struct CalendarView: View {
                                 days: calendarViewModel.days,
                                 dayWidth: dayWidth
                             )
+                            // Displaying events
                             ForEach(eventViewModel.processedEvents, id: \.self){ events in
                                 HStack(){
                                     ForEach(events){ event in

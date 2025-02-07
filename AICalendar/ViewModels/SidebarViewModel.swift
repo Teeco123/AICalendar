@@ -18,6 +18,7 @@ class SidebarViewModel{
     }
     
     func loadTabs() {
+        // Create tabs
         tabs = [
             SidebarTab(view: .calendar, icon: "calendar", text: "Calendar"),
             SidebarTab(view: .settings, icon: "gear", text: "Settings")
@@ -28,6 +29,7 @@ class SidebarViewModel{
         selectedTab = tab
     }
     
+    // Binding written here for better readability
     var selectedTabBinding: Binding<SidebarViewType?> {
         Binding(
             get: { self.selectedTab },
