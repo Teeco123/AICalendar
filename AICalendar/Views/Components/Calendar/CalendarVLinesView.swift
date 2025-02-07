@@ -10,10 +10,11 @@ import SwiftUI
 struct CalendarVLinesView: View{
     var hourLabel: CGSize
     var dayWidth: CGFloat
+    var days: [Date]
     
     var body: some View{
-        HStack(spacing: 0) {
-            ForEach(0...20, id: \.self) { index in
+        LazyHStack(spacing: 0) {
+            ForEach(0...days.count, id: \.self) { index in
                 VStack(spacing: 10) {
                     Rectangle()
                         .fill(.gray.opacity(0.6))

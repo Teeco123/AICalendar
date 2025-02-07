@@ -39,7 +39,8 @@ struct CalendarView: View {
                         ZStack(alignment: .topLeading){
                             CalendarVLinesView(
                                 hourLabel: hourLabel,
-                                dayWidth: dayWidth
+                                dayWidth: dayWidth,
+                                days: calendarViewModel.days
                             )
                             ForEach(Array(calendarViewModel.days.enumerated()), id: \.element) { index, day in
                                 CalendarDaysView(index: index, day: day, dayWidth: dayWidth)
