@@ -24,10 +24,10 @@ struct CalendarDaysView: View {
     }
     
     var body: some View {
-        HStack(spacing: 10) {
-            Text(formattedDay)
-        }
-        .frame(width: dayWidth)
-        .offset(x: offsetX)
+        LazyHStack(alignment: .top, spacing: 10) {
+                Text(formattedDay)
+            }
+            .frame(width: dayWidth)
+            .offset(x: offsetX)
     }
 }
